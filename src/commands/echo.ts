@@ -1,4 +1,4 @@
-import { ChannelType, SlashCommandBuilder, TextChannel } from "discord.js"
+import { AttachmentBuilder, ChannelType, EmbedBuilder, SlashCommandBuilder, TextChannel } from "discord.js"
 import { SlashCommand } from "../types";
 
 const command: SlashCommand = {
@@ -25,9 +25,15 @@ const command: SlashCommand = {
 
     channel.send({ content });
 
-    interaction.reply({ content: "Done^^", ephemeral: true });
+    const file = new AttachmentBuilder('../../assets/images/canvas.png');
+    // const embed = new EmbedBuilder()
+    //   .setColor(0x0099FF)
+    //   .setImage('attachment://canvas.png')
+
+    interaction.reply({ /* embeds: [embed], */ files: [file], ephemeral: true });
   },
   cooldown: 10
 }
+
 
 export default command
